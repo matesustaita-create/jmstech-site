@@ -35,9 +35,9 @@ const PopularHomeServices = () => {
   ];
 
   return (
-    <section id="services" className="pt-4 pb-8 bg-gradient-to-b from-[#0c2f3a] via-[#0d3745] to-[#0c2f3a] text-white overflow-hidden">
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#2CB6C4] rounded-full mix-blend-overlay filter blur-3xl"></div>
+    <section id="services" className="pt-4 pb-8 bg-gradient-to-b from-[#0c2f3a] via-[#0d3745] to-[#0c2f3a] text-white overflow-hidden relative">
+      <div className="absolute inset-0 opacity-5 pointer-events-none">
+        <div className="hidden md:block absolute top-1/4 left-1/4 w-96 h-96 bg-[#2CB6C4] rounded-full mix-blend-overlay filter blur-3xl"></div>
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

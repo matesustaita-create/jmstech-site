@@ -30,7 +30,7 @@ const About: React.FC = () => {
       {/* Background elements */}
       <div className="absolute inset-0 opacity-5 pointer-events-none">
         <div className="absolute top-1/4 -left-20 w-64 h-64 bg-[#2CB6C4] rounded-full mix-blend-overlay filter blur-3xl" />
-        <div className="absolute bottom-1/3 -right-20 w-80 h-80 bg-[#2CB6C4] rounded-full mix-blend-overlay filter blur-3xl" />
+        <div className="absolute bottom-1/3 right-0 md:-right-20 w-64 md:w-80 h-80 bg-[#2CB6C4] rounded-full mix-blend-overlay filter blur-3xl" />
       </div>
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-4">

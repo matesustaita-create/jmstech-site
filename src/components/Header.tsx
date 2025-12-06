@@ -108,22 +108,17 @@ const Header = ({ activeView, onViewChange, onNavigate }: HeaderProps) => {
 
       {/* Header Main Bar */}
       <div 
-        className={`header-main-bar relative z-10 transition-all duration-300`}
+        className={`header-main-bar relative z-10 flex items-center justify-between bg-transparent transition-all duration-300 ${
+          isScrolled ? 'py-3 px-4 md:px-10' : 'py-4 px-4 md:px-10'
+        }`}
         style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          background: 'transparent',
-          padding: isScrolled ? '0.75rem 40px' : '1rem 40px',
-          transition: 'all 0.3s ease',
           position: 'relative',
           zIndex: 2
         }}
       >
         {/* Logo - Left */}
         <div 
-          className="logo flex items-center cursor-pointer"
-          style={{ marginLeft: '20px' }}
+          className="logo flex items-center cursor-pointer ml-0 md:ml-5"
           onClick={() => window.location.href = '/'}
           aria-label="Go to JMS Tech homepage"
         >
@@ -138,7 +133,7 @@ const Header = ({ activeView, onViewChange, onNavigate }: HeaderProps) => {
               isScrolled ? 'text-xs' : 'text-sm'
             }`} style={{ 
               fontFamily: "'Inter', sans-serif",
-              lineHeight: '0.1',
+              lineHeight: '1.1',
               marginLeft: '5px'
             }}>Newcastle • Advanced Solutions</p>
           </div>

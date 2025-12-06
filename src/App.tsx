@@ -62,7 +62,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#0a2d38] to-[#0a1e26] text-white">
+    <div className="min-h-screen bg-gradient-to-b from-[#0a2d38] to-[#0a1e26] text-white overflow-x-hidden">
       <Header
         activeView={activeView}
         onViewChange={setActiveView}

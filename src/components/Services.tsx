@@ -46,7 +46,7 @@ const Services: React.FC = () => {
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full opacity-5">
         <div className="absolute top-1/4 -left-20 w-64 h-64 bg-[#2CB6C4] rounded-full mix-blend-overlay filter blur-3xl"></div>
-        <div className="absolute bottom-1/3 -right-20 w-80 h-80 bg-[#2CB6C4] rounded-full mix-blend-overlay filter blur-3xl"></div>
+        <div className="absolute bottom-1/3 right-0 md:-right-20 w-64 md:w-80 h-80 bg-[#2CB6C4] rounded-full mix-blend-overlay filter blur-3xl"></div>
       </div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

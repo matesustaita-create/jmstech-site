@@ -13,7 +13,7 @@ const HowItWorks: React.FC<HowItWorksProps> = ({ onQuickContactClick }) => {
       {/* Background elements */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-1/3 -left-20 w-64 h-64 bg-[#2CB6C4] rounded-full mix-blend-overlay filter blur-3xl"></div>
-        <div className="absolute bottom-1/4 -right-20 w-80 h-80 bg-[#2CB6C4] rounded-full mix-blend-overlay filter blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-0 md:-right-20 w-64 md:w-80 h-80 bg-[#2CB6C4] rounded-full mix-blend-overlay filter blur-3xl"></div>
       </div>
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
