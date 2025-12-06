@@ -91,7 +91,7 @@ const Contact: React.FC<ContactProps> = ({ isModalOpen, onClose, selectedService
     { icon: Phone, label: 'Call Us', value: '(+61) 416 665 227 ', href: 'tel:+61 416 665 227' },
     { icon: Mail, label: 'Email', value: 'mateo@jmstech.com.au', href: 'mailto:mateo@jmstech.com.au' },
     { icon: MapPin, label: 'Location', value: '70 Hanbury Street, Mayfield, NSW Australia', href: 'https://maps.app.goo.gl/quFyQaGowoSwsudz8' },
-    { icon: Clock, label: 'Hours', value: 'Mon-Fri 8AM-6PM, Sat 9AM-4PM', href: '#' }
+    { icon: Clock, label: 'Hours', value: 'Mon-Fri 8AM-6PM, Sat 9AM-4PM', href: '' }
   ];
 
   return (
@@ -111,6 +111,31 @@ const Contact: React.FC<ContactProps> = ({ isModalOpen, onClose, selectedService
               <div className="grid sm:grid-cols-2 gap-2">
                 {contactInfo.map((info, index) => {
                   const Icon = info.icon;
+                  const commonContent = (
+                    <div className="flex items-center space-x-4">
+                      <div className="bg-gradient-to-br from-[#2CB6C4] to-[#1a8a96] p-3 rounded-lg shadow-lg shadow-[#2CB6C4]/30 group-hover:scale-110 transition-transform duration-300">
+                        <Icon className="text-white" size={24} />
+                      </div>
+                      <div>
+                        <div className="font-medium text-gray-150">{info.label}</div>
+                        <div className="text-white font-semibold">{info.value}</div>
+                      </div>
+                    </div>
+                  );
+
+                  // For entries without href (like "Hours"), render a non-clickable card
+                  if (!info.href) {
+                    return (
+                      <div
+                        key={index}
+                        className="group bg-[#0f3a47]/95 backdrop-blur-sm p-4 rounded-xl border border-[#1a4a5a] hover:border-[#2CB6C4] transition-all duration-300 hover:shadow-xl hover:shadow-[#2CB6C4]/10 hover:-translate-y-1"
+                        aria-label={`${info.label}: ${info.value}`}
+                      >
+                        {commonContent}
+                      </div>
+                    );
+                  }
+
                   return (
                     <a
                       key={index}
@@ -120,15 +145,7 @@ const Contact: React.FC<ContactProps> = ({ isModalOpen, onClose, selectedService
                       aria-label={`Contact via ${info.label}: ${info.value}`}
                       className="group bg-[#0f3a47]/95 backdrop-blur-sm p-4 rounded-xl border border-[#1a4a5a] hover:border-[#2CB6C4] transition-all duration-300 hover:shadow-xl hover:shadow-[#2CB6C4]/10 hover:-translate-y-1"
                     >
-                      <div className="flex items-center space-x-4">
-                        <div className="bg-gradient-to-br from-[#2CB6C4] to-[#1a8a96] p-3 rounded-lg shadow-lg shadow-[#2CB6C4]/30 group-hover:scale-110 transition-transform duration-300">
-                          <Icon className="text-white" size={24} />
-                        </div>
-                        <div>
-                          <div className="font-medium text-gray-150">{info.label}</div>
-                          <div className="text-white font-semibold">{info.value}</div>
-                        </div>
-                      </div>
+                      {commonContent}
                     </a>
                   );
                 })}
