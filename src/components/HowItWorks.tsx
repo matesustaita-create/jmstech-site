@@ -25,20 +25,38 @@ const HowItWorks: React.FC<HowItWorksProps> = ({ onQuickContactClick }) => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
           {/* Card 1 */}
-          <button
-            type="button"
+          <div
+            role="button"
+            tabIndex={0}
             onClick={onQuickContactClick}
-            className="text-left group bg-[#0f3a47]/95 backdrop-blur-sm p-6 rounded-xl border border-[#1a4a5a] hover:border-[#2CB6C4] transition-all duration-300 hover:shadow-xl hover:shadow-[#2CB6C4]/10 hover:-translate-y-1.5 focus:outline-none focus:ring-2 focus:ring-[#2CB6C4] focus:ring-offset-2 focus:ring-offset-[#0e3e4c]"
+            onKeyDown={(e) => {
+              if ((e.key === 'Enter' || e.key === ' ') && onQuickContactClick) {
+                e.preventDefault();
+                onQuickContactClick();
+              }
+            }}
+            className="text-left cursor-pointer group bg-[#0f3a47]/95 backdrop-blur-sm p-6 rounded-xl border border-[#1a4a5a] hover:border-[#2CB6C4] transition-all duration-300 hover:shadow-xl hover:shadow-[#2CB6C4]/10 hover:-translate-y-1.5 focus:outline-none focus:ring-2 focus:ring-[#2CB6C4] focus:ring-offset-2 focus:ring-offset-[#0e3e4c]"
           >
             <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#2CB6C4] to-[#1a8a96] flex items-center justify-center mb-4 shadow-lg shadow-[#2CB6C4]/30 group-hover:scale-110 transition-transform duration-300">
               <Calendar className="text-white w-7 h-7" />
             </div>
             <h3 className="text-xl font-bold text-white mb-3 group-hover:text-[#2CB6C4] transition-colors duration-300">1) Book online or call</h3>
             <p className="text-gray-200 leading-relaxed text-sm">Tell us what's going on and choose a time that suits you.</p>
-          </button>
+          </div>
 
           {/* Card 2 */}
-          <div className="group bg-[#0f3a47]/95 backdrop-blur-sm p-6 rounded-xl border border-[#1a4a5a] hover:border-[#2CB6C4] transition-all duration-300 hover:shadow-xl hover:shadow-[#2CB6C4]/10 hover:-translate-y-1.5">
+          <div
+            role="button"
+            tabIndex={0}
+            onClick={onQuickContactClick}
+            onKeyDown={(e) => {
+              if ((e.key === 'Enter' || e.key === ' ') && onQuickContactClick) {
+                e.preventDefault();
+                onQuickContactClick();
+              }
+            }}
+            className="cursor-pointer group bg-[#0f3a47]/95 backdrop-blur-sm p-6 rounded-xl border border-[#1a4a5a] hover:border-[#2CB6C4] transition-all duration-300 hover:shadow-xl hover:shadow-[#2CB6C4]/10 hover:-translate-y-1.5 focus:outline-none focus:ring-2 focus:ring-[#2CB6C4] focus:ring-offset-2 focus:ring-offset-[#0e3e4c]"
+          >
             <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#2CB6C4] to-[#1a8a96] flex items-center justify-center mb-4 shadow-lg shadow-[#2CB6C4]/30 group-hover:scale-110 transition-transform duration-300">
               <Search className="text-white w-7 h-7" />
             </div>
@@ -46,7 +64,18 @@ const HowItWorks: React.FC<HowItWorksProps> = ({ onQuickContactClick }) => {
             <p className="text-gray-200 leading-relaxed text-sm">
               We identify the issue and explain options. No diagnosis, no charge
               <button 
-                onClick={() => setShowTerms(true)}
+                type="button"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setShowTerms(true);
+                }}
+                onKeyDown={(e) => {
+                  e.stopPropagation();
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    setShowTerms(true);
+                  }
+                }}
                 aria-label="View diagnostic policy terms and conditions for the first 30 minutes no-charge offer"
                 className="text-[#2CB6C4] hover:text-white transition-colors font-medium focus:outline-none underline underline-offset-4 decoration-dotted"
               >
@@ -57,7 +86,18 @@ const HowItWorks: React.FC<HowItWorksProps> = ({ onQuickContactClick }) => {
           </div>
 
           {/* Card 3 */}
-          <div className="group bg-[#0f3a47]/95 backdrop-blur-sm p-6 rounded-xl border border-[#1a4a5a] hover:border-[#2CB6C4] transition-all duration-300 hover:shadow-xl hover:shadow-[#2CB6C4]/10 hover:-translate-y-1.5">
+          <div
+            role="button"
+            tabIndex={0}
+            onClick={onQuickContactClick}
+            onKeyDown={(e) => {
+              if ((e.key === 'Enter' || e.key === ' ') && onQuickContactClick) {
+                e.preventDefault();
+                onQuickContactClick();
+              }
+            }}
+            className="cursor-pointer group bg-[#0f3a47]/95 backdrop-blur-sm p-6 rounded-xl border border-[#1a4a5a] hover:border-[#2CB6C4] transition-all duration-300 hover:shadow-xl hover:shadow-[#2CB6C4]/10 hover:-translate-y-1.5 focus:outline-none focus:ring-2 focus:ring-[#2CB6C4] focus:ring-offset-2 focus:ring-offset-[#0e3e4c]"
+          >
             <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#2CB6C4] to-[#1a8a96] flex items-center justify-center mb-4 shadow-lg shadow-[#2CB6C4]/30 group-hover:scale-110 transition-transform duration-300">
               <Wrench className="text-white w-7 h-7" />
             </div>
@@ -65,7 +105,18 @@ const HowItWorks: React.FC<HowItWorksProps> = ({ onQuickContactClick }) => {
             <p className="text-gray-200 leading-relaxed text-sm">On-site at your place, at our workshop or secure remote session. Clear costs before parts or extras.</p>
           </div>
           {/* Card 4 */}
-          <div className="group bg-[#0f3a47]/95 backdrop-blur-sm p-6 rounded-xl border border-[#1a4a5a] hover:border-[#2CB6C4] transition-all duration-300 hover:shadow-xl hover:shadow-[#2CB6C4]/10 hover:-translate-y-1.5 h-full">
+          <div
+            role="button"
+            tabIndex={0}
+            onClick={onQuickContactClick}
+            onKeyDown={(e) => {
+              if ((e.key === 'Enter' || e.key === ' ') && onQuickContactClick) {
+                e.preventDefault();
+                onQuickContactClick();
+              }
+            }}
+            className="cursor-pointer group bg-[#0f3a47]/95 backdrop-blur-sm p-6 rounded-xl border border-[#1a4a5a] hover:border-[#2CB6C4] transition-all duration-300 hover:shadow-xl hover:shadow-[#2CB6C4]/10 hover:-translate-y-1.5 h-full focus:outline-none focus:ring-2 focus:ring-[#2CB6C4] focus:ring-offset-2 focus:ring-offset-[#0e3e4c]"
+          >
             <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#2CB6C4] to-[#1a8a96] flex items-center justify-center mb-4 shadow-lg shadow-[#2CB6C4]/30 group-hover:scale-110 transition-transform duration-300">
               <ShieldCheck className="text-white w-7 h-7" />
             </div>

@@ -125,7 +125,7 @@ const Footer: React.FC<FooterProps> = ({ onServiceClick, onQuickLinkClick }) => 
                 <Clock className="text-cyan-400 mt-0.5" size={18} />
                 <div className="leading-snug">
                   <div className="text-gray-400">Business Hours</div>
-                  <div className="text-white text-[11px] sm:text-xs">
+                  <div className="text-white text-[11px] sm:text-sm">
                     Mon–Fri: 8AM–6PM
                     <br />
                     Saturday: 9AM–4PM
