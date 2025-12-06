@@ -40,7 +40,9 @@
     <div id="root"></div>
 
     <!-- Hidden Netlify forms to register React forms -->
-    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="contact" />
+      <input type="text" name="bot-field" />
       <input type="text" name="name" />
       <input type="email" name="email" />
       <input type="tel" name="phone" />
@@ -48,7 +50,9 @@
       <textarea name="message"></textarea>
     </form>
 
-    <form name="quick-contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <form name="quick-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="quick-contact" />
+      <input type="text" name="bot-field" />
       <input type="text" name="name" />
       <input type="email" name="email" />
       <input type="tel" name="phone" />
