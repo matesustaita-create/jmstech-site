@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #2CB6C4;
+  --color-secondary: #104A5B;
+  --color-gray: #BFBFBF;
+  --color-dark: #3E3E3E;
+}
+
+@layer base {
+  html {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  body {
+    @apply bg-white text-[#3E3E3E] antialiased overflow-x-hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium text-[#104A5B];
+  }
+  
+  a {
+    @apply text-[#2CB6C4] hover:text-[#26a0ad] transition-colors;
+  }
+  
+  .btn-primary {
+    @apply bg-[#2CB6C4] hover:bg-[#26a0ad] text-white font-medium py-2 px-6 rounded-md transition-colors;
+  }
+  
+  .btn-secondary {
+    @apply bg-transparent border-2 border-[#2CB6C4] text-[#2CB6C4] hover:bg-[#2CB6C4] hover:text-white font-medium py-2 px-6 rounded-md transition-colors;
+  }
+}
+
+/* Logo de fondo como marca de agua */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('/jms-logo.png');
+  background-size: min(50vw, 50vh);
+  background-repeat: no-repeat;
+  background-position: center center;
+  opacity: 0.05;
+  filter: blur(8px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Estilos adicionales específicos de la aplicación */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Montserrat', sans-serif;
+}
