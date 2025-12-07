@@ -1,4 +1,4 @@
-import { Suspense, lazy, useState } from 'react';
+import { Suspense, lazy, useState, useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 
@@ -60,6 +60,25 @@ function App() {
       scrollToSection(target);
     }
   };
+
+  // Handle deep links like /#how-it-works or /#contact
+  useEffect(() => {
+    const hash = window.location.hash?.replace('#', '');
+    if (!hash) return;
+
+    if (hash === 'for-business') {
+      setActiveView('business');
+      return;
+    }
+
+    setActiveView('home');
+
+    const timeout = setTimeout(() => {
+      scrollToSection(hash);
+    }, 200);
+
+    return () => clearTimeout(timeout);
+  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#0a2d38] to-[#0a1e26] text-white overflow-x-hidden">
